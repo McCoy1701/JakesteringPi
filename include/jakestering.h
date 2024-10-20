@@ -72,6 +72,8 @@
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
+#define MAX_BUFFER 32 
+
 extern int memFd; // /dev/mem
 
 extern void* gpioMap; //Pointer to the GPIO memory map
@@ -94,5 +96,13 @@ int digitalRead( const int pin );
 
 void digitalWriteByte( const int value, const int pinStart, const int pinEnd );
 
+static void *interrupt_handler(void *arg);
+
+int wait_for_interrupt( const int pin, const int ms );
+int wait_for_interrupt_to_close( const int pin );
+int interrupt_init( const int pin, const int mode );
+int jakestering_ISR( const int pin, const int mode, void (*function)(void) );
+
+int piHiPri (const int pri);
 #endif
 

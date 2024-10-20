@@ -36,8 +36,8 @@ $(BIN_DIR): always $(OBJ_DIR)/main.o $(OBJ_DIR)/jakestering.o $(OBJ_DIR)/lcd128x
 
 build: $(BUILD_DIR)
 
-$(BUILD_DIR): create $(JAKESTERING_DIR)/jakestering.c $(JAKESTERING_DIR)/lcd128x64.c $(JAKESTERING_DIR)/lcd.c $(JAKESTERING_DIR)/keypad.c $(JAKESTERING_DIR)/interrupts.c 
-	$(CC) -fPIC -shared $(JAKESTERING_DIR)/jakestering.c $(JAKESTERING_DIR)/lcd128x64.c $(JAKESTERING_DIR)/lcd.c $(JAKESTERING_DIR)/keypad.c $(JAKESTERING_DIR)/interrupts.c $(CINC) $(CFLAGS) -o $@/libJakestering.so
+$(BUILD_DIR): create $(JAKESTERING_DIR)/jakestering.c $(JAKESTERING_DIR)/lcd128x64.c $(JAKESTERING_DIR)/lcd.c $(JAKESTERING_DIR)/keypad.c 
+	$(CC) -fPIC -shared $(JAKESTERING_DIR)/jakestering.c $(JAKESTERING_DIR)/lcd128x64.c $(JAKESTERING_DIR)/lcd.c $(JAKESTERING_DIR)/keypad.c $(CINC) $(CFLAGS) -o $@/libJakestering.so
 
 .PHONY: install
 install:
